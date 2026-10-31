@@ -1,0 +1,10 @@
+Case: FSI2
+Flag: L = 0.351010 m, h = 0.02 m, clamp x = 0.248990, point A = (0.6, 0.2)
+Structure: rho_s = 10000.0, E = 1.4e+06, nu_s = 0.4 -> EI (plane strain) = 1.11111 N*m^2/m, rho*A = 200 kg/m
+Fluid: rho_f = 1000, nu_f = 0.001, U_mean = 1.0  (Re = 100)
+Segments: N = 20, dx = 0.017551 m, segment mass = 3.5101 kg, eta = 0.0 s
+Natural frequencies of the dry cantilever (continuum, Euler-Bernoulli): 0.3385, 2.1215, 5.9403 Hz
+Mesh: 18860 cells; cell size along the flag 0.00293 m; n_r=30, n_q=21, n_ur=26,
+      n_tip=6, n_flag=90, n_wake=101 (wake grading 20.20), grading towards the flag 1.87
+Coupling: nOuterCorrectors = 6, accelerationRelaxation = 0.5, dt = 0.001, endTime = 15.0
+Reference (Turek & Hron 2006): ux = -14.58 +- 12.44, uy = 1.23 +- 80.6 (x1e-3 m);  drag = 208.83 +- 73.75, lift = 0.88 +- 234.2 N/m; frequency of uy ~1.93-2.0 Hz, of ux and drag ~3.86 Hz

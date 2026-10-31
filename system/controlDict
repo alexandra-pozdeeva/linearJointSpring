@@ -1,0 +1,94 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     pimpleFoam;
+
+startFrom       latestTime;
+startTime       0;
+stopAt          endTime;
+endTime         15.0;
+deltaT          0.001;
+adjustTimeStep  no;
+
+writeControl    adjustable;
+writeInterval   0.1;
+purgeWrite      0;
+writeFormat     ascii;
+writePrecision  8;
+writeCompression off;
+timeFormat      general;
+timePrecision   8;
+runTimeModifiable true;
+
+functions
+{
+    forcesTurek
+    {
+        type            forces;
+        libs            ("libforces.so");
+        writeControl    timeStep;
+        writeInterval   1;
+        patches         (cylinder "segment.*Wall");
+        rho             rhoInf;
+        rhoInf          1000;
+        CofR            (0.2 0.2 0);
+        log             false;
+    }
+
+    tipA
+    {
+        type            coded;
+        libs            ("libutilityFunctionObjects.so");
+        name            tipA;
+
+        codeData
+        #{
+            label tipPoint_ = -2;
+            vector A0_ = vector(0.6, 0.2, 0);
+        #};
+
+        codeExecute
+        #{
+            const pointField& pts = mesh().points();
+            if (tipPoint_ == -2)
+            {
+                scalar dmin = GREAT;
+                label imin = -1;
+                forAll(pts, i)
+                {
+                    const scalar d = Foam::sqrt(sqr(pts[i].x() - A0_.x()) + sqr(pts[i].y() - A0_.y()));
+                    if (d < dmin) { dmin = d; imin = i; }
+                }
+                const scalar gmin = returnReduce(dmin, minOp<scalar>());
+                tipPoint_ = (dmin <= gmin + SMALL) ? imin : -1;
+                if (gmin > 1e-6)
+                {
+                    WarningInFunction << "point A is not a mesh point, distance " << gmin << endl;
+                }
+            }
+            vector p(Zero);
+            label cnt = 0;
+            if (tipPoint_ >= 0) { p = pts[tipPoint_]; cnt = 1; }
+            reduce(p, sumOp<vector>());
+            reduce(cnt, sumOp<label>());
+            if (cnt > 0) { p /= scalar(cnt); }
+            Info<< "TipA " << mesh().time().value() << " "
+                << p.x() - A0_.x() << " " << p.y() - A0_.y() << endl;
+        #};
+    }
+}
+
+// ************************************************************************* //

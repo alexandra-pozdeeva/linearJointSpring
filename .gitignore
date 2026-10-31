@@ -1,0 +1,22 @@
+# wmake build output
+Make/linux64*
+Make/darwin*
+lnInclude/
+*.o
+*.so
+*.dep
+
+# OpenFOAM run output
+constant/polyMesh/
+processor*/
+postProcessing/
+dynamicCode/
+log.*
+[0-9]*/
+!0.orig/
+*.foam
+
+# post-processing output
+turek_results.png
+__pycache__/
+*.pyc

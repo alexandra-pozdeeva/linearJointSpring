@@ -1,0 +1,416 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+dynamicFvMesh   dynamicMotionSolverFvMesh;
+
+// librigidBodyDynamicsSpring.so: library with the linearJointSpring restraint (src/linearJointSpring)
+motionSolverLibs ("librigidBodyMeshMotion.so" "libfvMotionSolvers.so" "librigidBodyDynamicsSpring.so");
+
+motionSolver    rigidBodyMotionSolver;
+
+meshSolver
+{
+    solver          displacementLaplacian;
+    diffusivity     inverseDistance (cylinder segment0Wall segment1Wall segment2Wall segment3Wall segment4Wall segment5Wall segment6Wall segment7Wall segment8Wall segment9Wall segment10Wall segment11Wall segment12Wall segment13Wall segment14Wall segment15Wall segment16Wall segment17Wall segment18Wall segment19Wall);
+}
+
+report          on;
+
+solver
+{
+    type            Newmark;
+    gamma           0.5;
+    beta            0.25;
+}
+
+accelerationRelaxation  0.5;
+accelerationDamping     1;
+nIter                   1;
+
+g               (0 0 0);
+rho             rhoInf;
+rhoInf          1000;
+
+bodies
+{
+    segment0
+    {
+        type            rigidBody;
+        parent          root;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.2489897949 0.2 0);
+        joint           { type Rz; }
+        patches         (segment0Wall);
+    }
+    segment1
+    {
+        type            rigidBody;
+        parent          segment0;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment1Wall);
+    }
+    segment2
+    {
+        type            rigidBody;
+        parent          segment1;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment2Wall);
+    }
+    segment3
+    {
+        type            rigidBody;
+        parent          segment2;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment3Wall);
+    }
+    segment4
+    {
+        type            rigidBody;
+        parent          segment3;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment4Wall);
+    }
+    segment5
+    {
+        type            rigidBody;
+        parent          segment4;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment5Wall);
+    }
+    segment6
+    {
+        type            rigidBody;
+        parent          segment5;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment6Wall);
+    }
+    segment7
+    {
+        type            rigidBody;
+        parent          segment6;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment7Wall);
+    }
+    segment8
+    {
+        type            rigidBody;
+        parent          segment7;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment8Wall);
+    }
+    segment9
+    {
+        type            rigidBody;
+        parent          segment8;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment9Wall);
+    }
+    segment10
+    {
+        type            rigidBody;
+        parent          segment9;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment10Wall);
+    }
+    segment11
+    {
+        type            rigidBody;
+        parent          segment10;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment11Wall);
+    }
+    segment12
+    {
+        type            rigidBody;
+        parent          segment11;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment12Wall);
+    }
+    segment13
+    {
+        type            rigidBody;
+        parent          segment12;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment13Wall);
+    }
+    segment14
+    {
+        type            rigidBody;
+        parent          segment13;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment14Wall);
+    }
+    segment15
+    {
+        type            rigidBody;
+        parent          segment14;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment15Wall);
+    }
+    segment16
+    {
+        type            rigidBody;
+        parent          segment15;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment16Wall);
+    }
+    segment17
+    {
+        type            rigidBody;
+        parent          segment16;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment17Wall);
+    }
+    segment18
+    {
+        type            rigidBody;
+        parent          segment17;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment18Wall);
+    }
+    segment19
+    {
+        type            rigidBody;
+        parent          segment18;
+        centreOfMass    (0.0087752551 0 0);
+        mass            3.510102051;
+        inertia         (0.2926255077 0 0 0.2925986029 0 0.0002071019912);
+        transform       (1 0 0 0 1 0 0 0 1) (0.0175505103 0 0);
+        joint           { type Rz; }
+        patches         (segment19Wall);
+    }
+}
+
+restraints
+{
+    hinge0   // clamp hinge, k = 2EI/dx
+    {
+        type            linearJointSpring;
+        body            segment0;
+        stiffness       126.6186675;
+        damping         0;
+    }
+    hinge1
+    {
+        type            linearJointSpring;
+        body            segment1;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge2
+    {
+        type            linearJointSpring;
+        body            segment2;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge3
+    {
+        type            linearJointSpring;
+        body            segment3;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge4
+    {
+        type            linearJointSpring;
+        body            segment4;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge5
+    {
+        type            linearJointSpring;
+        body            segment5;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge6
+    {
+        type            linearJointSpring;
+        body            segment6;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge7
+    {
+        type            linearJointSpring;
+        body            segment7;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge8
+    {
+        type            linearJointSpring;
+        body            segment8;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge9
+    {
+        type            linearJointSpring;
+        body            segment9;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge10
+    {
+        type            linearJointSpring;
+        body            segment10;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge11
+    {
+        type            linearJointSpring;
+        body            segment11;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge12
+    {
+        type            linearJointSpring;
+        body            segment12;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge13
+    {
+        type            linearJointSpring;
+        body            segment13;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge14
+    {
+        type            linearJointSpring;
+        body            segment14;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge15
+    {
+        type            linearJointSpring;
+        body            segment15;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge16
+    {
+        type            linearJointSpring;
+        body            segment16;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge17
+    {
+        type            linearJointSpring;
+        body            segment17;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge18
+    {
+        type            linearJointSpring;
+        body            segment18;
+        stiffness       63.30933374;
+        damping         0;
+    }
+    hinge19
+    {
+        type            linearJointSpring;
+        body            segment19;
+        stiffness       63.30933374;
+        damping         0;
+    }
+}
+
+// ************************************************************************* //

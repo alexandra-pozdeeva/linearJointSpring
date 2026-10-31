@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    inlet
+    {
+        type            codedFixedValue;
+        value           uniform (0 0 0);
+        name            turekInlet;
+        codeInclude
+        #{
+            #include "mathematicalConstants.H"
+        #};
+        code
+        #{
+            const scalar Um = 1;
+            const scalar H  = 0.41;
+            const scalar t  = this->db().time().value();
+            const scalar ramp =
+                (t < 2.0) ? 0.5*(1.0 - cos(constant::mathematical::pi*t/2.0)) : 1.0;
+
+            const vectorField& Cf = patch().Cf();
+            vectorField Uin(Cf.size(), Zero);
+            forAll(Cf, i)
+            {
+                const scalar y = Cf[i].y();
+                Uin[i] = vector(1.5*Um*y*(H - y)/sqr(0.5*H)*ramp, 0, 0);
+            }
+            operator==(Uin);
+        #};
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 0);
+    }
+
+    "(walls|cylinder)"
+    {
+        type            noSlip;
+    }
+
+    "(flag|segment.*Wall)"
+    {
+        type            movingWallVelocity;
+        value           uniform (0 0 0);
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //

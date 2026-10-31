@@ -1,0 +1,143 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pointSync false;
+
+patches
+(
+    {
+        name segment0Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg0;
+    }
+    {
+        name segment1Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg1;
+    }
+    {
+        name segment2Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg2;
+    }
+    {
+        name segment3Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg3;
+    }
+    {
+        name segment4Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg4;
+    }
+    {
+        name segment5Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg5;
+    }
+    {
+        name segment6Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg6;
+    }
+    {
+        name segment7Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg7;
+    }
+    {
+        name segment8Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg8;
+    }
+    {
+        name segment9Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg9;
+    }
+    {
+        name segment10Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg10;
+    }
+    {
+        name segment11Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg11;
+    }
+    {
+        name segment12Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg12;
+    }
+    {
+        name segment13Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg13;
+    }
+    {
+        name segment14Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg14;
+    }
+    {
+        name segment15Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg15;
+    }
+    {
+        name segment16Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg16;
+    }
+    {
+        name segment17Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg17;
+    }
+    {
+        name segment18Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg18;
+    }
+    {
+        name segment19Wall;
+        patchInfo { type wall; }
+        constructFrom set;
+        set seg19;
+    }
+);
+
+// ************************************************************************* //

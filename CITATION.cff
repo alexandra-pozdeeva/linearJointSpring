@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "linearJointSpring: rigid-segment (rigid finite element) chains for fluid-structure interaction in OpenFOAM"
+authors:
+  - family-names: Nuriev
+    given-names: Artem
+    affiliation: "N. I. Lobachevsky Institute of Mathematics and Mechanics, Kazan Federal University"
+license: GPL-3.0-or-later
+version: 1.0.0
+preferred-citation:
+  type: article
+  title: "The rigid finite element method for fast fluid-structure interaction of slender bodies in OpenFOAM"
+  authors:
+    - family-names: Nuriev
+      given-names: Artem
+    - family-names: Affane
+      given-names: B.
+    - family-names: Pozdeeva
+      given-names: A.
+  status: submitted

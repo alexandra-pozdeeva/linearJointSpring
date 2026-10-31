@@ -1,0 +1,4 @@
+linearJointSpring.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/librigidBodyDynamicsSpring

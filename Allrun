@@ -1,0 +1,21 @@
+#!/bin/sh
+# The case files are generated beforehand by
+#   python3 scripts/make_case.py --case FSI2 --n-segments 20 --cells-per-segment 6
+cd "${0%/*}" || exit
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions
+
+runApplication blockMesh
+runApplication topoSet
+runApplication createPatch -overwrite
+restore0Dir
+runApplication checkMesh
+
+# Serial run
+# runApplication pimpleFoam
+
+# Parallel run
+runApplication decomposePar
+runParallel pimpleFoam
+runApplication reconstructPar
+
+python3 scripts/postprocess.py

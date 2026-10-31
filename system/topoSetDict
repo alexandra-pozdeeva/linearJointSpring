@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2112                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    { name seg0; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg0; type faceSet; action subset; source boxToFace;
+      box (0.2389897949 0.1850 -1.5) (0.2665403051 0.2150 1.5); }
+    { name seg1; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg1; type faceSet; action subset; source boxToFace;
+      box (0.2665403051 0.1850 -1.5) (0.2840908154 0.2150 1.5); }
+    { name seg2; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg2; type faceSet; action subset; source boxToFace;
+      box (0.2840908154 0.1850 -1.5) (0.3016413256 0.2150 1.5); }
+    { name seg3; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg3; type faceSet; action subset; source boxToFace;
+      box (0.3016413256 0.1850 -1.5) (0.3191918359 0.2150 1.5); }
+    { name seg4; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg4; type faceSet; action subset; source boxToFace;
+      box (0.3191918359 0.1850 -1.5) (0.3367423461 0.2150 1.5); }
+    { name seg5; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg5; type faceSet; action subset; source boxToFace;
+      box (0.3367423461 0.1850 -1.5) (0.3542928564 0.2150 1.5); }
+    { name seg6; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg6; type faceSet; action subset; source boxToFace;
+      box (0.3542928564 0.1850 -1.5) (0.3718433667 0.2150 1.5); }
+    { name seg7; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg7; type faceSet; action subset; source boxToFace;
+      box (0.3718433667 0.1850 -1.5) (0.3893938769 0.2150 1.5); }
+    { name seg8; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg8; type faceSet; action subset; source boxToFace;
+      box (0.3893938769 0.1850 -1.5) (0.4069443872 0.2150 1.5); }
+    { name seg9; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg9; type faceSet; action subset; source boxToFace;
+      box (0.4069443872 0.1850 -1.5) (0.4244948974 0.2150 1.5); }
+    { name seg10; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg10; type faceSet; action subset; source boxToFace;
+      box (0.4244948974 0.1850 -1.5) (0.4420454077 0.2150 1.5); }
+    { name seg11; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg11; type faceSet; action subset; source boxToFace;
+      box (0.4420454077 0.1850 -1.5) (0.4595959179 0.2150 1.5); }
+    { name seg12; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg12; type faceSet; action subset; source boxToFace;
+      box (0.4595959179 0.1850 -1.5) (0.4771464282 0.2150 1.5); }
+    { name seg13; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg13; type faceSet; action subset; source boxToFace;
+      box (0.4771464282 0.1850 -1.5) (0.4946969385 0.2150 1.5); }
+    { name seg14; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg14; type faceSet; action subset; source boxToFace;
+      box (0.4946969385 0.1850 -1.5) (0.5122474487 0.2150 1.5); }
+    { name seg15; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg15; type faceSet; action subset; source boxToFace;
+      box (0.5122474487 0.1850 -1.5) (0.5297979590 0.2150 1.5); }
+    { name seg16; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg16; type faceSet; action subset; source boxToFace;
+      box (0.5297979590 0.1850 -1.5) (0.5473484692 0.2150 1.5); }
+    { name seg17; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg17; type faceSet; action subset; source boxToFace;
+      box (0.5473484692 0.1850 -1.5) (0.5648989795 0.2150 1.5); }
+    { name seg18; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg18; type faceSet; action subset; source boxToFace;
+      box (0.5648989795 0.1850 -1.5) (0.5824494897 0.2150 1.5); }
+    { name seg19; type faceSet; action new;    source patchToFace; patch flag; }
+    { name seg19; type faceSet; action subset; source boxToFace;
+      box (0.5824494897 0.1850 -1.5) (0.6100000000 0.2150 1.5); }
+);
+
+// ************************************************************************* //
